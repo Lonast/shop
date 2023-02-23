@@ -1,21 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import { getGoodsThunk } from "../../features/goods/goodsSlice";
-import { useAppDispathc, useAppSelector } from "../../hooks/hookType";
+import { getGoodsThunkNew } from "../../features/goods/goodsSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hookType";
 import Card from "../card/Card";
+import Footer from "../footer/Footer";
 import Loader from "../loader/Loader";
 import "./homePage.css";
-import back from "../../backgrounds/background1.jpg";
+
+interface Index {
+  first: number;
+  second: number;
+}
 
 const divStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundSize: "contain",
+  backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
-  backgroundColor: "white",
   height: "400px",
 };
 const backgrounds = [
@@ -29,14 +33,19 @@ const backgrounds = [
 ];
 
 const HomePage: React.FC = () => {
-  const dispatch = useAppDispathc();
+  const dispatch = useAppDispatch();
   const selector = useAppSelector((state) => state.goods);
-  const slideImages = selector.goods;
-  const index = Math.floor(Math.random() * (selector.goods.length - 9));
+  const slideImages = selector.newGoods;
+  const index = Math.floor(Math.random() * (selector.newGoods.length - 9));
+  const [memIndex, setMemIndex] = useState<Index>({ first: 1, second: 1 });
 
   useEffect(() => {
-    dispatch(getGoodsThunk());
+    dispatch(getGoodsThunkNew());
   }, [dispatch]);
+  useEffect(() => {
+    setMemIndex({ first: index, second: index + 9 });
+  }, [selector.status]);
+
   return (
     <div className="container">
       <div className="container__items">
@@ -46,7 +55,7 @@ const HomePage: React.FC = () => {
           <>
             <div className="gradient"></div>
             <img
-              className=" background"
+              className="background"
               src={backgrounds[Math.floor(Math.random() * backgrounds.length)]}
               alt=""
             />
@@ -57,28 +66,34 @@ const HomePage: React.FC = () => {
                     <div
                       style={{
                         ...divStyle,
-                        backgroundImage: `url(${slideImage.image})`,
+                        backgroundImage: `url(${slideImage.category.image})`,
                       }}
                     ></div>
                   </div>
                 ))}
               </Slide>
             </div>
+            <h1 className="container__header">Recommendations</h1>
             <div className="card__container">
-              {selector.goods.slice(index, index + 9).map((item) => {
-                return (
-                  <Card
-                    key={item.id}
-                    title={item.title}
-                    img={item.image}
-                    rating={item.rating}
-                  />
-                );
-              })}
+              {selector.newGoods
+                .slice(memIndex.first, memIndex.second)
+                .map((item) => {
+                  return (
+                    <Card
+                      key={item.id}
+                      liked={item.liked}
+                      id={item.id}
+                      title={item.title}
+                      img={item.category.image}
+                      rating={item.rating}
+                    />
+                  );
+                })}
             </div>
           </>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

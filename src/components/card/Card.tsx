@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./card.css";
 import star from "../../images/star.svg";
+import heartImg from "../../images/heart.svg";
+import redHeart from "../../images/red-heart.svg";
+import { useAppDispatch, useAppSelector } from "../../hooks/hookType";
+import { setLikes } from "../../features/goods/goodsSlice";
 
 interface CardProps {
+  id: number;
   img: string;
   title: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
+  rating: string;
+  liked: boolean;
 }
 
 const Card: React.FC<CardProps> = (props) => {
-  const { title, img, rating } = props;
+  const dispatch = useAppDispatch();
+  const selector = useAppSelector((state) => state.goods);
+  const { id, title, img, rating, liked } = props;
+  const [heart, setHeart] = useState<boolean>(false);
 
   return (
     <div className="card">
+      <div className="card__heart_background"></div>
+      <img
+        onClick={() => dispatch(setLikes(id))}
+        className="card__heart"
+        src={liked ? redHeart : heartImg}
+        alt="card"
+      />
       <img className="card__image" src={img} alt="" />
       <div className="card__rating">
         <hr className="card__hr" />
@@ -24,7 +37,7 @@ const Card: React.FC<CardProps> = (props) => {
             {title.length >= 30 ? title.slice(0, 30) + "..." : title}
           </p>
           <div className="rating">
-            <p className="">{rating.rate}</p>
+            <p className="">{rating}</p>
             <img className="card__rating_rate" src={star} alt="" />
           </div>
         </div>

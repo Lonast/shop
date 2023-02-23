@@ -1,0 +1,39 @@
+.footer {
+  padding-top: 50px;
+  position: relative;
+  height: auto;
+  min-height: 230px;
+  width: 100%;
+  background-color: rgb(45, 45, 45);
+  color: white;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.footer__item {
+  font-size: 1.5rem;
+  justify-self: center;
+}
+.footer__devider {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #6e43fa;
+  z-index: 5;
+}
+.footer__item h3 {
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+.footer__item p {
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.footer__item h3:hover {
+  text-decoration: underline;
+}
+.footer__item p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -24,7 +24,7 @@
 }
 .cart__value {
   position: absolute;
-  right: 0;
+  right: 50px;
   cursor: pointer;
   bottom: -2px;
   background-color: red;
@@ -33,6 +33,9 @@
   text-align: center;
   color: white;
   border-radius: 50%;
+}
+.cart__value:nth-child(2) {
+  right: 0;
 }
 .cart__value p {
   font-size: 1.05rem;
@@ -53,4 +56,8 @@
 }
 .search__container_select {
   font-size: 1rem;
+}
+.header__heart {
+  cursor: pointer;
+  width: 50px;
 }

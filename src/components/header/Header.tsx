@@ -2,6 +2,7 @@ import React from "react";
 import "./header.css";
 import logo from "../../images/shop_logo.svg";
 import cart from "../../images/cart.svg";
+import heart from "../../images/heart-head.svg";
 import { Link, Outlet } from "react-router-dom";
 
 const Header: React.FC = () => {
@@ -28,7 +29,15 @@ const Header: React.FC = () => {
           />
         </div>
         <div className="cart__container">
-          <img className="cart" src={cart} alt="cart" />
+          <Link to="/">
+            <img className="cart" src={cart} alt="cart" />
+          </Link>
+          <div className="cart__value">
+            <p>0</p>
+          </div>
+          <Link to="likes">
+            <img className="header__heart" src={heart} alt="" />
+          </Link>
           <div className="cart__value">
             <p>0</p>
           </div>

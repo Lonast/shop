@@ -1,32 +1,37 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface Goods {
+interface NewGoods {
   id: number;
   title: string;
   price: number;
   description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
+  images: string[];
+  creationAt: string;
+  updatedAt: string;
+  rating: string;
+  liked: boolean;
+  category: {
+    id: string;
+    name: number;
+    image: string;
+    creationAt: string;
+    updatedAt: string;
   };
 }
 type GoodsDataState = {
-  goods: Goods[];
   status: string;
+  newGoods: NewGoods[];
 };
 const initialState: GoodsDataState = {
-  goods: [],
+  newGoods: [],
   status: "",
 };
 
-export const getGoodsThunk = createAsyncThunk(
-  "good/getGoodsThunk",
+export const getGoodsThunkNew = createAsyncThunk(
+  "good/getGoodsThunkNew",
   async () => {
-    const res = await axios.get("https://fakestoreapi.com/products");
-
+    const res = await axios.get("https://api.escuelajs.co/api/v1/products");
     return res.data;
   }
 );
@@ -34,19 +39,33 @@ export const getGoodsThunk = createAsyncThunk(
 export const goodsSlice = createSlice({
   name: "good",
   initialState,
-  reducers: {},
+  reducers: {
+    setLikes: (state, action: PayloadAction<number>) => {
+      const like =
+        state.newGoods.find((item) => item.id === action.payload) ||
+        state.newGoods[1];
+      like.liked = !like.liked;
+    },
+  },
   extraReducers(builder) {
-    builder.addCase(getGoodsThunk.pending, (state) => {
+    builder.addCase(getGoodsThunkNew.pending, (state) => {
       state.status = "pending";
     });
     builder.addCase(
-      getGoodsThunk.fulfilled,
-      (state, action: PayloadAction<Goods[]>) => {
+      getGoodsThunkNew.fulfilled,
+      (state, action: PayloadAction<NewGoods[]>) => {
         state.status = "fulfilled";
-        state.goods = action.payload;
+        state.newGoods = action.payload.map((item) => {
+          return {
+            ...item,
+            rating: (Math.random() * 5).toFixed(1),
+            liked: false,
+          };
+        });
       }
     );
   },
 });
 
+export const { setLikes } = goodsSlice.actions;
 export default goodsSlice.reducer;
