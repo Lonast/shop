@@ -1,0 +1,49 @@
+.card {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  width: 200px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin-left: 20px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  height: 250px;
+  background-color: white;
+}
+.card__image {
+  width: 150px;
+}
+.card__rating {
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+  right: 0;
+  align-items: flex-end;
+}
+.card__rating_rate {
+  width: 30px;
+}
+.card__hr {
+  width: 100%;
+  border: 1px solid #6e43fa;
+}
+.info {
+  display: flex;
+}
+.rating {
+  background-color: #6e43fa;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 7px;
+}
+.info__title {
+  padding: 5px;
+}

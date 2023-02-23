@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+.header {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  background-color: rgb(255, 255, 255);
+  height: 80px;
+  width: 100%;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+  min-width: 630px;
+  z-index: 1;
+}
+.header__logo {
+  cursor: pointer;
+  width: 50px;
+}
+.cart__container {
+  position: relative;
+  display: flex;
+}
+.cart__value {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  bottom: -2px;
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+}
+.cart__value p {
+  font-size: 1.05rem;
+}
+.cart {
+  cursor: pointer;
+  width: 50px;
+}
+.search__container {
+  display: flex;
+  width: 70%;
+}
+.search__container_input {
+  font-size: 1.2rem;
+  min-width: 200px;
+  width: 100%;
+  height: 40px;
+}
+.search__container_select {
+  font-size: 1rem;
+}
