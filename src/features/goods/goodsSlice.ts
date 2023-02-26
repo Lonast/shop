@@ -13,7 +13,7 @@ interface NewGoods {
   liked: boolean;
   category: {
     id: string;
-    name: number;
+    name: string;
     image: string;
     creationAt: string;
     updatedAt: string;

@@ -31,6 +31,7 @@ const backgrounds = [
   require("../../backgrounds/background6.jpg"),
   require("../../backgrounds/background7.jpg"),
 ];
+const random = Math.floor(Math.random() * backgrounds.length);
 
 const HomePage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -40,7 +41,9 @@ const HomePage: React.FC = () => {
   const [memIndex, setMemIndex] = useState<Index>({ first: 1, second: 1 });
 
   useEffect(() => {
-    dispatch(getGoodsThunkNew());
+    if (selector.newGoods.length === 0) {
+      dispatch(getGoodsThunkNew());
+    }
   }, [dispatch]);
   useEffect(() => {
     setMemIndex({ first: index, second: index + 9 });
@@ -54,11 +57,7 @@ const HomePage: React.FC = () => {
         ) : (
           <>
             <div className="gradient"></div>
-            <img
-              className="background"
-              src={backgrounds[Math.floor(Math.random() * backgrounds.length)]}
-              alt=""
-            />
+            <img className="background" src={backgrounds[random]} alt="" />
             <div className="slider">
               <Slide>
                 {slideImages.map((slideImage, index) => (

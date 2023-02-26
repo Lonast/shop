@@ -1,0 +1,28 @@
+.search {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  min-height: 100vh;
+  padding: 90px 20px;
+  background-color: white;
+  margin: auto;
+}
+.search hr {
+  border: none;
+  width: 100%;
+  background-color: #6e43fa;
+  height: 2px;
+}
+.search__header {
+  color: #6e43fa;
+  font-size: 3rem;
+}
+.search__category {
+  font-size: 2rem;
+  color: #6e43fa;
+}
+.nothing {
+  margin-top: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+}

@@ -16,15 +16,22 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = (props) => {
   const dispatch = useAppDispatch();
-  const selector = useAppSelector((state) => state.goods);
   const { id, title, img, rating, liked } = props;
-  const [heart, setHeart] = useState<boolean>(false);
+
+  const likeHandle = () => {
+    dispatch(setLikes(id));
+
+    localStorage.setItem(
+      "id",
+      localStorage.getItem("id") || "" + id.toString()
+    );
+  };
 
   return (
     <div className="card">
       <div className="card__heart_background"></div>
       <img
-        onClick={() => dispatch(setLikes(id))}
+        onClick={likeHandle}
         className="card__heart"
         src={liked ? redHeart : heartImg}
         alt="card"

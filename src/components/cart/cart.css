@@ -1,0 +1,7 @@
+.cart {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 670px;
+  background-color: white;
+  margin: auto;
+}

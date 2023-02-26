@@ -1,0 +1,19 @@
+.liked {
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  max-width: 1200px;
+  background-color: white;
+  margin: auto;
+  padding-top: 90px;
+  padding-left: 20px;
+}
+.liked__cards {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.liked__header {
+  color: #6e43fa;
+  font-size: 3rem;
+}

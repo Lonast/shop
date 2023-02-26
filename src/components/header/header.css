@@ -45,6 +45,7 @@
   width: 50px;
 }
 .search__container {
+  padding-left: 3%;
   display: flex;
   width: 70%;
 }
@@ -60,4 +61,19 @@
 .header__heart {
   cursor: pointer;
   width: 50px;
+}
+.header__search {
+  width: 35px;
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  opacity: 0.5;
+}
+.search__ico {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+.header__search:hover {
+  opacity: 0.8;
 }
