@@ -5,10 +5,13 @@ import cart from "../../images/cart.svg";
 import heart from "../../images/heart-head.svg";
 import searchIco from "../../images/search-ico.svg";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../hooks/hookType";
 
 const Header: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [category, setCategory] = useState<string>("all");
+  const cartSelector = useAppSelector((state) => state.cart);
+  const likeSelector = useAppSelector((state) => state.goods);
   const navigate = useNavigate();
 
   const handleNavigate = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -57,17 +60,17 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className="cart__container">
-          <Link to="/">
+          <Link to="cart">
             <img className="cart" src={cart} alt="cart" />
           </Link>
           <div className="cart__value">
-            <p>0</p>
+            <p>{likeSelector.likes}</p>
           </div>
           <Link to="likes">
             <img className="header__heart" src={heart} alt="" />
           </Link>
           <div className="cart__value">
-            <p>0</p>
+            <p>{cartSelector.cart.length}</p>
           </div>
         </div>
       </div>

@@ -1,7 +1,38 @@
-.cart {
+.truck {
   width: 100%;
   max-width: 1200px;
   min-width: 670px;
   background-color: white;
+  min-height: 100vh;
   margin: auto;
+  padding: 80px 20px 0 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.truck__container {
+  border-left: 2px solid #6e43fa;
+  padding-top: 10px;
+  padding-left: 20px;
+  height: 100%;
+}
+.truck__order {
+  color: white;
+  background-color: #6e43fa;
+  padding: 10px 40px;
+  border-radius: 20px;
+  width: 100%;
+  font-size: 2rem;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+.truck__cart {
+  color: #6e43fa;
+  font-size: 3rem;
+}
+.truck__price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.truck__order:hover {
+  transform: scale(1.1);
 }

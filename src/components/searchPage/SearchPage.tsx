@@ -1,8 +1,9 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import "./searchPage.css";
-import SearchItem from "./searchItem/SearchItem";
+import SearchItem from "../searchItem/SearchItem";
 import { useAppSelector } from "../../hooks/hookType";
+import { uid } from "uid";
 
 const SearchPage: React.FC = () => {
   const [searchValue, setSearchValue] = useSearchParams();
@@ -24,13 +25,9 @@ const SearchPage: React.FC = () => {
           return (
             <SearchItem
               key={item.id}
-              category={item.category.name}
+              text={true}
               id={item.id}
-              img={item.category.image}
-              title={item.title}
-              description={item.description}
-              liked={item.liked}
-              price={item.price}
+              good={{ ...item, deleteId: uid() }}
             />
           );
         });
@@ -46,20 +43,15 @@ const SearchPage: React.FC = () => {
         .map((item) => {
           return item.category.name.toLocaleLowerCase() === category ? (
             <SearchItem
-              category={item.category.name}
+              text={false}
               key={item.id}
+              good={{ ...item, deleteId: uid() }}
               id={item.id}
-              img={item.category.image}
-              title={item.title}
-              description={item.description}
-              liked={item.liked}
-              price={item.price}
             />
           ) : null;
         });
     }
   };
-  console.log(selector);
 
   const items = categoryCheck();
 

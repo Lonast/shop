@@ -13,9 +13,9 @@
   background-color: white;
 }
 .card__image {
-  width: 280px;
+  width: 290px;
   position: absolute;
-  left: -40px;
+  left: -45px;
   object-fit: cover;
 }
 .card__rating {
@@ -45,6 +45,7 @@
   flex-direction: row;
   align-items: center;
   padding-left: 7px;
+  position: relative;
 }
 .info__title {
   padding: 5px;
