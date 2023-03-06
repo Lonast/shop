@@ -3,8 +3,9 @@ import "./card.css";
 import star from "../../images/star.svg";
 import heartImg from "../../images/heart.svg";
 import redHeart from "../../images/red-heart.svg";
-import { useAppDispatch, useAppSelector } from "../../hooks/hookType";
+import { useAppDispatch } from "../../hooks/hookType";
 import { setLikes } from "../../features/goods/goodsSlice";
+import { Link } from "react-router-dom";
 
 interface CardProps {
   id: number;
@@ -13,30 +14,30 @@ interface CardProps {
   rating: string;
   liked: boolean;
 }
-
 const Card: React.FC<CardProps> = (props) => {
   const dispatch = useAppDispatch();
   const { id, title, img, rating, liked } = props;
 
   const likeHandle = () => {
     dispatch(setLikes(id));
-
     localStorage.setItem(
       "id",
       localStorage.getItem("id") || "" + id.toString()
     );
   };
-
   return (
     <div className="card">
       <div className="card__heart_background"></div>
+
       <img
         onClick={likeHandle}
         className="card__heart"
         src={liked ? redHeart : heartImg}
         alt="card"
       />
-      <img className="card__image" src={img} alt="" />
+      <Link to={`item/${id}`}>
+        <img className="card__image" src={img} alt="" />
+      </Link>
       <div className="card__rating">
         <hr className="card__hr" />
         <div className="info">

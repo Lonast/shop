@@ -15,6 +15,8 @@ function App() {
         <Route path="search" element={<SearchPage />} />
         <Route path="cart" element={<Cart />} />
         <Route path="search/item/:id" element={<SinglePage />} />
+        <Route path="cart/item/:id" element={<SinglePage />} />
+        <Route path="/item/:id" element={<SinglePage />} />
       </Route>
     </Routes>
   );

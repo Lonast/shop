@@ -60,3 +60,11 @@
 .searchItem__price_img {
   width: 40px;
 }
+@media (max-width: 710px) {
+  .searchItem {
+    grid-template-columns: 1fr;
+  }
+  .searchItem__img {
+    width: 100%;
+  }
+}

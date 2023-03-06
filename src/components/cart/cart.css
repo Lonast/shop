@@ -36,3 +36,19 @@
 .truck__order:hover {
   transform: scale(1.1);
 }
+@media (max-width: 910px) {
+  .truck {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .truck {
+    min-width: 100px;
+  }
+  .truck__container {
+    border-left: none;
+    border-bottom: 2px solid #6e43fa;
+    padding-bottom: 10px;
+    padding-left: 0;
+  }
+}

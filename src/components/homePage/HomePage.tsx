@@ -5,7 +5,6 @@ import { getGoodsThunkNew } from "../../features/goods/goodsSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/hookType";
 import Card from "../card/Card";
 import ErrorPage from "../errorPage/ErrorPage";
-import Footer from "../footer/Footer";
 import Loader from "../loader/Loader";
 import "./homePage.css";
 
@@ -81,7 +80,6 @@ const HomePage: React.FC = () => {
                     ))}
                   </Slide>
                 </div>
-                <h1 className="container__header">Recommendations</h1>
                 <div className="card__container">
                   {selector.newGoods
                     .slice(memIndex.first, memIndex.second)
@@ -101,7 +99,6 @@ const HomePage: React.FC = () => {
               </>
             )}
           </div>
-          <Footer />
         </div>
       )}
     </>

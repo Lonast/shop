@@ -33,7 +33,6 @@ const SinglePage: React.FC = () => {
   };
 
   const [good, setGood] = useState<NewGoods>();
-
   const [images, setImages] = useState<string>("");
   useEffect(() => {
     if (good === undefined) {
@@ -48,8 +47,12 @@ const SinglePage: React.FC = () => {
   }, [good]);
   const rate = () => {
     let rating: ReactNode[] = [];
-    for (let i = 0; i <= Math.ceil(parseInt(good?.rating || "") || 5); i++) {
-      rating.push(<img src={star} key={i} className="rating__star" />);
+    if (Math.ceil(parseInt(good?.rating || "")) <= 1) {
+      return <img src={star} className="rating__star" />;
+    } else {
+      for (let i = 0; i <= Math.ceil(parseInt(good?.rating || "") || 5); i++) {
+        rating.push(<img src={star} key={i} className="rating__star" />);
+      }
     }
     return rating;
   };
@@ -82,6 +85,7 @@ const SinglePage: React.FC = () => {
       )
     );
   };
+
   return (
     <div className="singleGood">
       <button onClick={() => navigate(-1)} className="singleGood__back">

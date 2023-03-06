@@ -13,9 +13,9 @@
   background-color: white;
 }
 .card__image {
-  width: 290px;
+  width: 300px;
   position: absolute;
-  left: -45px;
+  left: -55px;
   object-fit: cover;
 }
 .card__rating {
@@ -64,4 +64,15 @@
   position: absolute;
   background-color: white;
   border-radius: 0 0 10px 0;
+}
+@media (max-width: 470px) {
+  .card {
+    width: 90%;
+    margin-left: 0;
+  }
+  .card__image {
+    width: 118%;
+    position: relative;
+    min-width: 300px;
+  }
 }
