@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/shop/static/css/main.1302e7af.css",
+    "main.js": "/shop/static/js/main.cf2e3196.js",
+    "static/media/background1.jpg": "/shop/static/media/background1.1489bb9e38db694075fb.jpg",
+    "static/media/background5.jpg": "/shop/static/media/background5.1d87e2d7f52be6947a49.jpg",
+    "static/media/background6.jpg": "/shop/static/media/background6.45bd11a438fad86a5e6c.jpg",
+    "static/media/background2.jpg": "/shop/static/media/background2.7cd1abc07f5181f6a9d3.jpg",
+    "static/media/background3.jpg": "/shop/static/media/background3.43817194eb609bd3cc42.jpg",
+    "static/media/background4.jpg": "/shop/static/media/background4.74e14c0c6fb700d0568e.jpg",
+    "static/media/background7.jpg": "/shop/static/media/background7.0b20ee74f007dbc4e3c5.jpg",
+    "static/media/vivid-blurred-colorful-background.jpg": "/shop/static/media/vivid-blurred-colorful-background.c4f1536ab488620bbc2e.jpg",
+    "static/media/shop_logo.svg": "/shop/static/media/shop_logo.18db32da86890edc8ad0e925144d9af7.svg",
+    "static/media/star.svg": "/shop/static/media/star.2f85f54e42c62e38695675187f5faf6f.svg",
+    "static/media/cart.svg": "/shop/static/media/cart.dfce0ed29c0a3b9f2674e152a2a5bdb9.svg",
+    "static/media/red-heart.svg": "/shop/static/media/red-heart.85c6c1ad569074032845a35ed680ad72.svg",
+    "static/media/search-ico.svg": "/shop/static/media/search-ico.057eac5ac352d4f8e23b28b1ce54ca81.svg",
+    "static/media/heart-head.svg": "/shop/static/media/heart-head.5d14a3be41331265654e385e5fe0ec52.svg",
+    "static/media/heart.svg": "/shop/static/media/heart.d6c982af471824d8af8372ec62e0a11e.svg",
+    "static/media/price-tag.svg": "/shop/static/media/price-tag.4c46885bd9817082d0cd70305ab47d37.svg",
+    "static/media/burger.svg": "/shop/static/media/burger.3b2c81e91f62f6becdf1f70440f90d47.svg",
+    "index.html": "/shop/index.html",
+    "main.1302e7af.css.map": "/shop/static/css/main.1302e7af.css.map",
+    "main.cf2e3196.js.map": "/shop/static/js/main.cf2e3196.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1302e7af.css",
+    "static/js/main.cf2e3196.js"
+  ]
+}
